@@ -2,6 +2,7 @@ version: "3.9"
 volumes:
     laravel-railway-mysql-data:
         driver: local
+    node_modules:
 
 services:
     nginx-container:
@@ -41,6 +42,7 @@ services:
         image: node:17.9.0
         volumes:
           - ./:/app
+          - node_modules:/app/node_modules
         entrypoint:
             - sh
         command:
@@ -91,4 +93,3 @@ services:
         environment:
             ADMINER_DEFAULT_SERVER: mysql-container
             ADMINER_DESIGN: galkaev
-
