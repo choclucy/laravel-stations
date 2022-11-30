@@ -4,6 +4,15 @@
 <div class="my-3">
   <h1>映画一覧</h1>
 
+  <form class="w-75" method="get" action="{{ route('movies') }}">
+    @csrf
+    <label for="keyword" class="form-label">キーワード</label>
+    <div class="d-flex">
+      <input type="text" name="keyword" class="form-control" id="keyword" value={{ $keyword }}>
+      <button type="submit" class="btn btn-sm btn-primary ms-1">検索</button>
+    </div>
+  </form>
+
   <table class="table">
     <thead>
       <tr>
